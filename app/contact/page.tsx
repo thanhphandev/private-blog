@@ -52,14 +52,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f5f0] py-16">
+    <div className="min-h-screen bg-white py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-poppins font-bold text-4xl md:text-5xl text-[#333] mb-6">
-            Get in <span className="text-[#d47d44]">Touch</span>
+          <h1 className="font-poppins font-bold text-4xl md:text-5xl text-black mb-6">
+            Get in <span className="text-slate-600">Touch</span>
           </h1>
-          <p className="font-lato text-xl text-[#4b5563] leading-relaxed max-w-2xl mx-auto">
+          <p className="font-lato text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Have a question, suggestion, or just want to say hello? I'd love to hear from you.
           </p>
         </div>
@@ -68,60 +68,60 @@ export default function ContactPage() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h2 className="font-poppins font-semibold text-2xl text-[#333] mb-6">
+              <h2 className="font-poppins font-semibold text-2xl text-black mb-6">
                 Let's Connect
               </h2>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#d47d44]/10 p-3 rounded-lg">
-                    <Mail className="h-6 w-6 text-[#d47d44]" />
+                  <div className="bg-slate-100 p-3 rounded-lg">
+                    <Mail className="h-6 w-6 text-black" />
                   </div>
                   <div>
-                    <h3 className="font-poppins font-medium text-lg text-[#333] mb-1">Email</h3>
-                    <p className="font-lato text-[#4b5563]">hello@devblog.com</p>
+                    <h3 className="font-poppins font-medium text-lg text-black mb-1">Email</h3>
+                    <p className="font-lato text-slate-600">hello@devblog.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="bg-[#d47d44]/10 p-3 rounded-lg">
-                    <MessageSquare className="h-6 w-6 text-[#d47d44]" />
+                  <div className="bg-slate-100 p-3 rounded-lg">
+                    <MessageSquare className="h-6 w-6 text-black" />
                   </div>
                   <div>
-                    <h3 className="font-poppins font-medium text-lg text-[#333] mb-1">Response Time</h3>
-                    <p className="font-lato text-[#4b5563]">Usually within 24 hours</p>
+                    <h3 className="font-poppins font-medium text-lg text-black mb-1">Response Time</h3>
+                    <p className="font-lato text-slate-600">Usually within 24 hours</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* FAQ */}
-            <div className="bg-white rounded-xl p-6 border border-neutral-200">
-              <h3 className="font-poppins font-semibold text-xl text-[#333] mb-4">
+            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+              <h3 className="font-poppins font-semibold text-xl text-black mb-4">
                 Quick Questions?
               </h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <p className="font-lato font-medium text-[#333]">Can you write about specific topics?</p>
-                  <p className="font-lato text-[#4b5563]">Absolutely! I'm always open to suggestions for new content.</p>
+                  <p className="font-lato font-medium text-black">Can you write about specific topics?</p>
+                  <p className="font-lato text-slate-600">Absolutely! I'm always open to suggestions for new content.</p>
                 </div>
                 <div>
-                  <p className="font-lato font-medium text-[#333]">Do you accept guest posts?</p>
-                  <p className="font-lato text-[#4b5563]">Currently focusing on original content, but open to collaboration.</p>
+                  <p className="font-lato font-medium text-black">Do you accept guest posts?</p>
+                  <p className="font-lato text-slate-600">Currently focusing on original content, but open to collaboration.</p>
                 </div>
                 <div>
-                  <p className="font-lato font-medium text-[#333]">How can I stay updated?</p>
-                  <p className="font-lato text-[#4b5563]">Follow the RSS feed or check back regularly for new posts.</p>
+                  <p className="font-lato font-medium text-black">How can I stay updated?</p>
+                  <p className="font-lato text-slate-600">Follow the RSS feed or check back regularly for new posts.</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <Card className="border-neutral-200 shadow-lg">
+          <Card className="border-slate-200 shadow-lg">
             <CardHeader>
-              <CardTitle className="font-poppins font-semibold text-2xl text-[#333] flex items-center gap-3">
-                <MessageSquare className="h-6 w-6 text-[#d47d44]" />
+              <CardTitle className="font-poppins font-semibold text-2xl text-black flex items-center gap-3">
+                <MessageSquare className="h-6 w-6 text-black" />
                 Send a Message
               </CardTitle>
             </CardHeader>
@@ -132,10 +132,10 @@ export default function ContactPage() {
                   <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="h-8 w-8 text-green-600" />
                   </div>
-                  <h3 className="font-poppins font-semibold text-xl text-[#333] mb-2">
+                  <h3 className="font-poppins font-semibold text-xl text-black mb-2">
                     Message Sent!
                   </h3>
-                  <p className="font-lato text-[#4b5563] mb-6">
+                  <p className="font-lato text-slate-600 mb-6">
                     Thanks for reaching out. I'll get back to you soon.
                   </p>
                   <Button 
@@ -155,7 +155,7 @@ export default function ContactPage() {
                         id="name"
                         {...form.register('name')}
                         placeholder="Your name"
-                        className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                        className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                       />
                       {form.formState.errors.name && (
                         <p className="text-red-600 text-sm mt-1">{form.formState.errors.name.message}</p>
@@ -169,7 +169,7 @@ export default function ContactPage() {
                         type="email"
                         {...form.register('email')}
                         placeholder="your@email.com"
-                        className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                        className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                       />
                       {form.formState.errors.email && (
                         <p className="text-red-600 text-sm mt-1">{form.formState.errors.email.message}</p>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                       id="subject"
                       {...form.register('subject')}
                       placeholder="What's this about?"
-                      className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                      className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                     />
                     {form.formState.errors.subject && (
                       <p className="text-red-600 text-sm mt-1">{form.formState.errors.subject.message}</p>
@@ -196,7 +196,7 @@ export default function ContactPage() {
                       id="message"
                       {...form.register('message')}
                       placeholder="Your message..."
-                      className="mt-1 h-32 resize-none border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                      className="mt-1 h-32 resize-none border-slate-200 focus:border-black focus:ring-black/20"
                     />
                     {form.formState.errors.message && (
                       <p className="text-red-600 text-sm mt-1">{form.formState.errors.message.message}</p>
@@ -206,7 +206,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#d47d44] hover:bg-[#d47d44]/90 text-white font-lato"
+                    className="w-full bg-black hover:bg-slate-800 text-white font-lato"
                   >
                     <Send className="h-4 w-4 mr-2" />
                     {isSubmitting ? 'Sending...' : 'Send Message'}

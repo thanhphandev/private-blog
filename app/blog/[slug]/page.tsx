@@ -75,7 +75,7 @@ export default async function PostPage({ params }: PostPageProps) {
         {/* Back Button */}
         <div className="mb-8">
           <Button asChild variant="ghost" className="group">
-            <Link href="/" className="flex items-center text-[#4b5563] hover:text-[#d47d44]">
+            <Link href="/" className="flex items-center text-slate-600 hover:text-black">
               <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
               Back to Posts
             </Link>
@@ -90,7 +90,7 @@ export default async function PostPage({ params }: PostPageProps) {
               {post.post_categories.map(({ categories }) => (
                 <Badge 
                   key={categories.id} 
-                  className="bg-[#d47d44]/10 text-[#d47d44] font-lato"
+                 className="bg-slate-100 text-slate-700 font-lato"
                 >
                   {categories.name}
                 </Badge>
@@ -98,11 +98,11 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           )}
 
-          <h1 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-[#333] mb-6 leading-tight">
+          <h1 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-black mb-6 leading-tight">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm text-[#4b5563] font-lato mb-6">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-lato mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <time dateTime={post.created_at}>

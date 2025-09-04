@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn(poppins.variable, lato.variable)}>
-      <body className="min-h-screen bg-[#f8f5f0] font-lato">
+      <body className="min-h-screen bg-white font-lato">
         <ReactQueryProvider>
           <div className="flex flex-col min-h-screen">
             <Header />

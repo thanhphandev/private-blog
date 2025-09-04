@@ -34,10 +34,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#f8f5f0]/80 backdrop-blur-md border-b border-neutral-200">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-poppins font-bold text-xl text-[#333] hover:text-[#d47d44] transition-colors duration-200">
+          <Link href="/" className="font-poppins font-bold text-xl text-black hover:text-slate-600 transition-colors duration-200">
             DevBlog
           </Link>
 
@@ -48,8 +49,8 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'font-lato text-sm font-medium transition-colors duration-200 hover:text-[#d47d44]',
-                  isActive(item.href) ? 'text-[#d47d44]' : 'text-[#333]'
+                  'font-lato text-sm font-medium transition-colors duration-200 hover:text-black',
+                  isActive(item.href) ? 'text-black' : 'text-slate-600'
                 )}
               >
                 {item.name}
@@ -67,7 +68,7 @@ export function Header() {
                   placeholder="Search posts..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 w-64 bg-white border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="pl-10 w-64 bg-white border-slate-200 focus:border-black focus:ring-black/20"
                 />
               </div>
             )}

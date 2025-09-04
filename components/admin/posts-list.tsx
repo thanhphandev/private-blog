@@ -44,8 +44,8 @@ export function PostsList() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="font-poppins font-bold text-2xl text-[#333]">All Posts</h2>
-        <Button asChild className="bg-[#d47d44] hover:bg-[#d47d44]/90 text-white">
+        <h2 className="font-poppins font-bold text-2xl text-black">All Posts</h2>
+        <Button asChild className="bg-black hover:bg-slate-800 text-white">
           <Link href="/admin/posts/new">
             <Plus className="h-4 w-4 mr-2" />
             New Post
@@ -54,14 +54,14 @@ export function PostsList() {
       </div>
 
       {posts && posts.length > 0 ? (
-        <div className="bg-white rounded-lg shadow-sm border border-neutral-200">
-          <div className="divide-y divide-neutral-200">
+        <div className="bg-white rounded-lg shadow-sm border border-slate-200">
+          <div className="divide-y divide-slate-200">
             {posts.map((post) => (
-              <div key={post.id} className="p-4 hover:bg-neutral-50 transition-colors">
+              <div key={post.id} className="p-4 hover:bg-slate-50 transition-colors">
                 <div className="flex items-center justify-between">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-poppins font-semibold text-[#333] truncate">
+                      <h3 className="font-poppins font-semibold text-black truncate">
                         {post.title}
                       </h3>
                       <Badge 
@@ -71,10 +71,10 @@ export function PostsList() {
                         {post.published ? 'Published' : 'Draft'}
                       </Badge>
                     </div>
-                    <p className="font-lato text-sm text-[#4b5563] mb-2 line-clamp-2">
+                    <p className="font-lato text-sm text-slate-600 mb-2 line-clamp-2">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-xs text-[#4b5563] font-lato">
+                    <div className="flex items-center gap-4 text-xs text-slate-500 font-lato">
                       <span>Created {format(new Date(post.created_at), 'MMM d, yyyy')}</span>
                       <span>{post.reading_time} min read</span>
                     </div>
@@ -125,8 +125,8 @@ export function PostsList() {
         </div>
       ) : (
         <div className="text-center py-12">
-          <p className="font-lato text-[#4b5563] mb-4">No posts created yet.</p>
-          <Button asChild className="bg-[#d47d44] hover:bg-[#d47d44]/90 text-white">
+          <p className="font-lato text-slate-600 mb-4">No posts created yet.</p>
+          <Button asChild className="bg-black hover:bg-slate-800 text-white">
             <Link href="/admin/posts/new">Create Your First Post</Link>
           </Button>
         </div>

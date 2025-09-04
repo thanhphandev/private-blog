@@ -82,17 +82,17 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f5f0] flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        <Card className="border-neutral-200 shadow-lg">
+        <Card className="border-slate-200 shadow-lg">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-4 w-12 h-12 bg-[#d47d44]/10 rounded-full flex items-center justify-center">
-              <UserPlus className="h-6 w-6 text-[#d47d44]" />
+            <div className="mx-auto mb-4 w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+              <UserPlus className="h-6 w-6 text-black" />
             </div>
-            <CardTitle className="font-poppins font-bold text-2xl text-[#333]">
+            <CardTitle className="font-poppins font-bold text-2xl text-black">
               Create Account
             </CardTitle>
-            <p className="font-lato text-[#4b5563] text-sm">
+            <p className="font-lato text-slate-600 text-sm">
               Join the developer community
             </p>
           </CardHeader>
@@ -107,7 +107,7 @@ export default function RegisterPage() {
                 <Input
                   id="username"
                   {...form.register('username')}
-                  className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                   placeholder="your-username"
                 />
                 {form.formState.errors.username && (
@@ -126,7 +126,7 @@ export default function RegisterPage() {
                   id="email"
                   type="email"
                   {...form.register('email')}
-                  className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                   placeholder="your@email.com"
                 />
                 {form.formState.errors.email && (
@@ -145,7 +145,7 @@ export default function RegisterPage() {
                   id="password"
                   type="password"
                   {...form.register('password')}
-                  className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                   placeholder="Create a password"
                 />
                 {form.formState.errors.password && (
@@ -164,7 +164,7 @@ export default function RegisterPage() {
                   id="confirmPassword"
                   type="password"
                   {...form.register('confirmPassword')}
-                  className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                   placeholder="Confirm your password"
                 />
                 {form.formState.errors.confirmPassword && (
@@ -183,16 +183,16 @@ export default function RegisterPage() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#d47d44] hover:bg-[#d47d44]/90 text-white font-lato"
+                className="w-full bg-black hover:bg-slate-800 text-white font-lato"
               >
                 {isLoading ? 'Creating account...' : 'Create Account'}
               </Button>
             </form>
 
             <div className="mt-6 text-center">
-              <p className="font-lato text-sm text-[#4b5563]">
+              <p className="font-lato text-sm text-slate-600">
                 Already have an account?{' '}
-                <Link href="/auth/login" className="text-[#d47d44] hover:underline">
+                <Link href="/auth/login" className="text-black hover:underline">
                   Sign in
                 </Link>
               </p>
@@ -201,7 +201,7 @@ export default function RegisterPage() {
         </Card>
 
         <div className="text-center mt-6">
-          <Link href="/" className="font-lato text-[#4b5563] hover:text-[#333] text-sm">
+          <Link href="/" className="font-lato text-slate-600 hover:text-black text-sm">
             ← Back to Blog
           </Link>
         </div>

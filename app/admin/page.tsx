@@ -49,24 +49,24 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-poppins font-bold text-3xl text-[#333] mb-2">Dashboard</h1>
-        <p className="font-lato text-[#4b5563]">Welcome back! Here's an overview of your blog.</p>
+        <h1 className="font-poppins font-bold text-3xl text-black mb-2">Dashboard</h1>
+        <p className="font-lato text-slate-600">Welcome back! Here's an overview of your blog.</p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat) => (
-          <Card key={stat.title} className="border-neutral-200 hover:shadow-md transition-shadow">
+          <Card key={stat.title} className="border-slate-200 hover:shadow-md transition-shadow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="font-lato text-sm font-medium text-[#4b5563]">
+              <CardTitle className="font-lato text-sm font-medium text-slate-600">
                 {stat.title}
               </CardTitle>
-              <div className={`${stat.bgColor} p-2 rounded-lg`}>
-                <stat.icon className={`h-4 w-4 ${stat.color}`} />
+              <div className="bg-slate-100 p-2 rounded-lg">
+                <stat.icon className="h-4 w-4 text-black" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="font-poppins text-2xl font-bold text-[#333]">
+              <div className="font-poppins text-2xl font-bold text-black">
                 {stat.value}
               </div>
             </CardContent>
@@ -75,9 +75,9 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Posts */}
-      <Card className="border-neutral-200">
+      <Card className="border-slate-200">
         <CardHeader>
-          <CardTitle className="font-poppins font-semibold text-xl text-[#333]">
+          <CardTitle className="font-poppins font-semibold text-xl text-black">
             Recent Posts
           </CardTitle>
         </CardHeader>
@@ -85,13 +85,13 @@ export default function AdminDashboard() {
           {posts && posts.length > 0 ? (
             <div className="space-y-4">
               {posts.slice(0, 5).map((post) => (
-                <div key={post.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-neutral-50 transition-colors">
+                <div key={post.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 transition-colors">
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-poppins font-medium text-[#333] truncate">
+                    <h4 className="font-poppins font-medium text-black truncate">
                       {post.title}
                     </h4>
                     <div className="flex items-center gap-3 mt-1">
-                      <span className="font-lato text-xs text-[#4b5563]">
+                      <span className="font-lato text-xs text-slate-500">
                         {format(new Date(post.created_at), 'MMM d, yyyy')}
                       </span>
                       <Badge 
@@ -108,7 +108,7 @@ export default function AdminDashboard() {
                   </div>
                   
                   <div className="flex items-center gap-2 ml-4">
-                    <span className="font-lato text-xs text-[#4b5563]">
+                    <span className="font-lato text-xs text-slate-500">
                       {formatReadingTime(post.reading_time)}
                     </span>
                   </div>
@@ -117,8 +117,8 @@ export default function AdminDashboard() {
             </div>
           ) : (
             <div className="text-center py-8">
-              <FileText className="h-12 w-12 text-neutral-300 mx-auto mb-4" />
-              <p className="font-lato text-[#4b5563]">No posts created yet.</p>
+              <FileText className="h-12 w-12 text-slate-300 mx-auto mb-4" />
+              <p className="font-lato text-slate-600">No posts created yet.</p>
             </div>
           )}
         </CardContent>

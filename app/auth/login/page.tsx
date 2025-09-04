@@ -59,17 +59,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f5f0] flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        <Card className="border-neutral-200 shadow-lg">
+        <Card className="border-slate-200 shadow-lg">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-4 w-12 h-12 bg-[#d47d44]/10 rounded-full flex items-center justify-center">
-              <LogIn className="h-6 w-6 text-[#d47d44]" />
+            <div className="mx-auto mb-4 w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+              <LogIn className="h-6 w-6 text-black" />
             </div>
-            <CardTitle className="font-poppins font-bold text-2xl text-[#333]">
+            <CardTitle className="font-poppins font-bold text-2xl text-black">
               Welcome Back
             </CardTitle>
-            <p className="font-lato text-[#4b5563] text-sm">
+            <p className="font-lato text-slate-600 text-sm">
               Sign in to access the admin dashboard
             </p>
           </CardHeader>
@@ -85,7 +85,7 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   {...form.register('email')}
-                  className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                   placeholder="your@email.com"
                 />
                 {form.formState.errors.email && (
@@ -104,7 +104,7 @@ export default function LoginPage() {
                   id="password"
                   type="password"
                   {...form.register('password')}
-                  className="mt-1 border-neutral-200 focus:border-[#d47d44] focus:ring-[#d47d44]/20"
+                  className="mt-1 border-slate-200 focus:border-black focus:ring-black/20"
                   placeholder="Enter your password"
                 />
                 {form.formState.errors.password && (
@@ -123,16 +123,16 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#d47d44] hover:bg-[#d47d44]/90 text-white font-lato"
+                className="w-full bg-black hover:bg-slate-800 text-white font-lato"
               >
                 {isLoading ? 'Signing in...' : 'Sign In'}
               </Button>
             </form>
 
             <div className="mt-6 text-center">
-              <p className="font-lato text-sm text-[#4b5563]">
+              <p className="font-lato text-sm text-slate-600">
                 Don't have an account?{' '}
-                <Link href="/auth/register" className="text-[#d47d44] hover:underline">
+                <Link href="/auth/register" className="text-black hover:underline">
                   Sign up
                 </Link>
               </p>
@@ -141,7 +141,7 @@ export default function LoginPage() {
         </Card>
 
         <div className="text-center mt-6">
-          <Link href="/" className="font-lato text-[#4b5563] hover:text-[#333] text-sm">
+          <Link href="/" className="font-lato text-slate-600 hover:text-black text-sm">
             ← Back to Blog
           </Link>
         </div>

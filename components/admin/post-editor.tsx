@@ -91,7 +91,7 @@ export function PostEditor({ post, onSave }: PostEditorProps) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         {/* Header Controls */}
         <div className="flex items-center justify-between">
-          <h2 className="font-poppins font-bold text-2xl text-[#333]">
+          <h2 className="font-poppins font-bold text-2xl text-black">
             {post ? 'Edit Post' : 'Create New Post'}
           </h2>
           
@@ -103,7 +103,7 @@ export function PostEditor({ post, onSave }: PostEditorProps) {
             <Button 
               type="submit" 
               disabled={createPost.isPending || updatePost.isPending}
-              className="bg-[#d47d44] hover:bg-[#d47d44]/90 text-white"
+              className="bg-black hover:bg-slate-800 text-white"
             >
               <Save className="h-4 w-4 mr-2" />
               {createPost.isPending || updatePost.isPending ? 'Saving...' : 'Save Post'}
@@ -176,20 +176,20 @@ export function PostEditor({ post, onSave }: PostEditorProps) {
             )}
           </div>
 
-          <div className="bg-neutral-50 rounded-lg p-4 space-y-2">
-            <h4 className="font-poppins font-medium text-[#333] mb-3">Post Statistics</h4>
+          <div className="bg-slate-50 rounded-lg p-4 space-y-2">
+            <h4 className="font-poppins font-medium text-black mb-3">Post Statistics</h4>
             <div className="flex items-center justify-between text-sm">
-              <span className="font-lato text-[#4b5563]">Reading Time:</span>
+              <span className="font-lato text-slate-600">Reading Time:</span>
               <span className="font-lato font-medium">{readingTime} min</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="font-lato text-[#4b5563]">Word Count:</span>
+              <span className="font-lato text-slate-600">Word Count:</span>
               <span className="font-lato font-medium">
                 {watchedContent ? watchedContent.split(/\s+/).length : 0}
               </span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="font-lato text-[#4b5563]">Status:</span>
+              <span className="font-lato text-slate-600">Status:</span>
               <span className="font-lato font-medium">
                 {form.watch('published') ? 'Published' : 'Draft'}
               </span>
@@ -226,14 +226,14 @@ export function PostEditor({ post, onSave }: PostEditorProps) {
           </TabsContent>
           
           <TabsContent value="preview" className="mt-4">
-            <div className="border border-neutral-200 rounded-lg p-6 min-h-[500px] bg-white">
-              <h1 className="font-poppins font-bold text-3xl text-[#333] mb-6">
+            <div className="border border-slate-200 rounded-lg p-6 min-h-[500px] bg-white">
+              <h1 className="font-poppins font-bold text-3xl text-black mb-6">
                 {watchedTitle || 'Preview Title'}
               </h1>
               {watchedContent ? (
                 <PostContent content={watchedContent} />
               ) : (
-                <p className="font-lato text-[#4b5563] italic">Start writing to see the preview...</p>
+                <p className="font-lato text-slate-600 italic">Start writing to see the preview...</p>
               )}
             </div>
           </TabsContent>

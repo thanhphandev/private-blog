@@ -41,7 +41,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="font-lato text-sm text-[#4b5563] mr-2">Share:</span>
+      <span className="font-lato text-sm text-slate-500 mr-2">Share:</span>
       
       {shareButtons.map((button) => (
         <Button
@@ -66,7 +66,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
         variant="ghost"
         size="sm"
         onClick={copyToClipboard}
-        className="hover:bg-neutral-50 hover:text-[#d47d44] transition-colors duration-200"
+        className="hover:bg-slate-50 hover:text-black transition-colors duration-200"
         aria-label="Copy link"
       >
         <LinkIcon className="h-4 w-4" />

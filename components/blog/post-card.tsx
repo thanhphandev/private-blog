@@ -21,7 +21,7 @@ interface PostCardProps {
 export function PostCard({ post }: PostCardProps) {
   return (
     <Link href={`/blog/${post.slug}`}>
-      <article className="group bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+      <article className="group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
         {post.cover_image && (
           <div className="relative h-48 overflow-hidden">
             <Image
@@ -41,7 +41,7 @@ export function PostCard({ post }: PostCardProps) {
                 <Badge 
                   key={categories.id} 
                   variant="secondary" 
-                  className="bg-[#d47d44]/10 text-[#d47d44] hover:bg-[#d47d44]/20 font-lato text-xs"
+                  className="bg-slate-100 text-slate-700 hover:bg-slate-200 font-lato text-xs"
                 >
                   {categories.name}
                 </Badge>
@@ -50,17 +50,17 @@ export function PostCard({ post }: PostCardProps) {
           )}
 
           {/* Title */}
-          <h3 className="font-poppins font-semibold text-xl text-[#333] mb-3 group-hover:text-[#d47d44] transition-colors duration-200 line-clamp-2">
+          <h3 className="font-poppins font-semibold text-xl text-black mb-3 group-hover:text-slate-600 transition-colors duration-200 line-clamp-2">
             {post.title}
           </h3>
 
           {/* Excerpt */}
-          <p className="font-lato text-[#4b5563] text-sm leading-relaxed mb-4 line-clamp-3">
+          <p className="font-lato text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
             {post.excerpt}
           </p>
 
           {/* Meta information */}
-          <div className="flex items-center justify-between text-xs text-[#4b5563] font-lato">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-lato">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1">
                 <Calendar className="h-3 w-3" />

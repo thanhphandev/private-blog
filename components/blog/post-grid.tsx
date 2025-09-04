@@ -12,7 +12,7 @@ export function PostGrid() {
   if (error) {
     return (
       <div className="text-center py-12">
-        <p className="text-red-600 font-lato">Failed to load posts. Please try again later.</p>
+        <p className="text-red-500 font-lato">Failed to load posts. Please try again later.</p>
       </div>
     );
   }
@@ -30,7 +30,7 @@ export function PostGrid() {
   if (!posts || posts.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-[#4b5563] font-lato text-lg">
+        <p className="text-slate-600 font-lato text-lg">
           {searchQuery || selectedCategory 
             ? 'No posts found matching your criteria.' 
             : 'No posts available yet.'

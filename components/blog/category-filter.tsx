@@ -16,10 +16,10 @@ export function CategoryFilter() {
     <div className="flex flex-wrap gap-2 mb-8">
       <Badge
         variant={selectedCategory === null ? 'default' : 'secondary'}
-        className={`cursor-pointer transition-colors duration-200 font-lato ${
+        className={`cursor-pointer transition-colors duration-200 font-lato border ${
           selectedCategory === null 
-            ? 'bg-[#d47d44] hover:bg-[#d47d44]/90 text-white' 
-            : 'bg-neutral-100 hover:bg-neutral-200 text-[#333]'
+            ? 'bg-black hover:bg-slate-800 text-white border-black' 
+            : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
         }`}
         onClick={() => setSelectedCategory(null)}
       >
@@ -30,10 +30,10 @@ export function CategoryFilter() {
         <Badge
           key={category.id}
           variant={selectedCategory === category.id ? 'default' : 'secondary'}
-          className={`cursor-pointer transition-colors duration-200 font-lato ${
+          className={`cursor-pointer transition-colors duration-200 font-lato border ${
             selectedCategory === category.id 
-              ? 'bg-[#d47d44] hover:bg-[#d47d44]/90 text-white' 
-              : 'bg-neutral-100 hover:bg-neutral-200 text-[#333]'
+              ? 'bg-black hover:bg-slate-800 text-white border-black' 
+              : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
           }`}
           onClick={() => setSelectedCategory(category.id)}
         >
