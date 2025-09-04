@@ -50,7 +50,7 @@ export default function AdminLayout({
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f5f0]">
+    <div className="min-h-screen">
       <div className="flex">
         {/* Sidebar */}
         <aside className="w-64 bg-white border-r border-neutral-200 min-h-screen">
