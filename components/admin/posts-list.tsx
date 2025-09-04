@@ -125,7 +125,6 @@ export function PostsList() {
         </div>
       ) : (
         <div className="text-center py-12">
-          <FileText className="h-12 w-12 text-neutral-300 mx-auto mb-4" />
           <p className="font-lato text-[#4b5563] mb-4">No posts created yet.</p>
           <Button asChild className="bg-[#d47d44] hover:bg-[#d47d44]/90 text-white">
             <Link href="/admin/posts/new">Create Your First Post</Link>
