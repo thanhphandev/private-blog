@@ -14,6 +14,7 @@ import {
 import { useAuth } from '@/lib/hooks/use-auth';
 import { useAuthStore } from '@/lib/store';
 import { useBlogStore } from '@/lib/store';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const pathname = usePathname();

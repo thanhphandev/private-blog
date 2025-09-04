@@ -5,7 +5,7 @@ export const postSchema = z.object({
   content: z.string().min(1, 'Content is required'),
   excerpt: z.string().max(500, 'Excerpt must be less than 500 characters').optional(),
   published: z.boolean().default(false),
-  cover_image: z.string().url().optional(),
+  cover_image: z.string().url().optional().or(z.literal('')),
   category_ids: z.array(z.string()).optional(),
 });
 

@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Twitter, Linkedin, Facebook, Link as LinkIcon } from 'lucide-react';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 interface ShareButtonsProps {
   url: string;
@@ -10,7 +11,7 @@ interface ShareButtonsProps {
 }
 
 export function ShareButtons({ url, title }: ShareButtonsProps) {
-  const fullUrl = `${window.location.origin}${url}`;
+  const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
 
   const shareButtons = [
     {

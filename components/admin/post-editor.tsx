@@ -13,10 +13,12 @@ import { PostContent } from '@/components/blog/post-content';
 import { useCategories } from '@/lib/hooks/use-categories';
 import { useCreatePost, useUpdatePost } from '@/lib/hooks/use-posts';
 import { postSchema, type PostFormData } from '@/lib/schemas/post';
+import { useAuth } from '@/lib/hooks/use-auth';
 import { createSlug } from '@/lib/utils/slug';
 import { calculateReadingTime } from '@/lib/utils/reading-time';
 import { Save, Eye, FileText } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
+import { toast } from 'sonner';
 
 interface PostEditorProps {
   post?: any;
@@ -25,6 +27,7 @@ interface PostEditorProps {
 
 export function PostEditor({ post, onSave }: PostEditorProps) {
   const [activeTab, setActiveTab] = useState('edit');
+  const { user } = useAuth();
   const { data: categories } = useCategories();
   const createPost = useCreatePost();
   const updatePost = useUpdatePost();
@@ -54,22 +57,30 @@ export function PostEditor({ post, onSave }: PostEditorProps) {
 
   const onSubmit = async (data: PostFormData) => {
     try {
+      if (!user) {
+        toast.error('You must be logged in to save posts');
+        return;
+      }
+
       const postData = {
         ...data,
         slug: post?.slug || createSlug(data.title),
-        author_id: 'user-id-placeholder', // This should come from auth
+        author_id: user.id,
         excerpt: data.excerpt || data.content.slice(0, 200) + '...',
       };
 
       if (post) {
         await updatePost.mutateAsync({ id: post.id, ...postData });
+        toast.success('Post updated successfully!');
       } else {
         await createPost.mutateAsync(postData);
+        toast.success('Post created successfully!');
       }
 
       onSave?.();
     } catch (error) {
       console.error('Failed to save post:', error);
+      toast.error('Failed to save post. Please try again.');
     }
   };
 
@@ -140,13 +151,20 @@ export function PostEditor({ post, onSave }: PostEditorProps) {
             {categories && categories.length > 0 && (
               <div>
                 <Label className="font-lato font-medium mb-3 block">Categories</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="space-y-2">
                   {categories.map((category) => (
                     <div key={category.id} className="flex items-center space-x-2">
                       <Checkbox
                         id={category.id}
-                        value={category.id}
-                        {...form.register('category_ids')}
+                        checked={form.watch('category_ids')?.includes(category.id) || false}
+                        onCheckedChange={(checked) => {
+                          const currentIds = form.getValues('category_ids') || [];
+                          if (checked) {
+                            form.setValue('category_ids', [...currentIds, category.id]);
+                          } else {
+                            form.setValue('category_ids', currentIds.filter(id => id !== category.id));
+                          }
+                        }}
                       />
                       <Label htmlFor={category.id} className="font-lato text-sm">
                         {category.name}

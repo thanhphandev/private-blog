@@ -68,15 +68,34 @@ export function useCreatePost() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (post: PostInsert) => {
+    mutationFn: async (post: PostInsert & { category_ids?: string[] }) => {
       const readingTime = calculateReadingTime(post.content);
+      const { category_ids, ...postData } = post;
+      
       const { data, error } = await supabase
         .from('posts')
-        .insert({ ...post, reading_time: readingTime })
+        .insert({ ...postData, reading_time: readingTime })
         .select()
         .single();
 
       if (error) throw error;
+      
+      // Handle category associations
+      if (category_ids && category_ids.length > 0) {
+        const categoryInserts = category_ids.map(categoryId => ({
+          post_id: data.id,
+          category_id: categoryId,
+        }));
+        
+        const { error: categoryError } = await supabase
+          .from('post_categories')
+          .insert(categoryInserts);
+          
+        if (categoryError) {
+          console.error('Failed to associate categories:', categoryError);
+        }
+      }
+      
       return data;
     },
     onSuccess: () => {
@@ -89,8 +108,9 @@ export function useUpdatePost() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ id, ...post }: PostUpdate & { id: string }) => {
+    mutationFn: async ({ id, category_ids, ...post }: PostUpdate & { id: string; category_ids?: string[] }) => {
       const readingTime = post.content ? calculateReadingTime(post.content) : undefined;
+      
       const { data, error } = await supabase
         .from('posts')
         .update({ ...post, reading_time: readingTime, updated_at: new Date().toISOString() })
@@ -99,6 +119,32 @@ export function useUpdatePost() {
         .single();
 
       if (error) throw error;
+      
+      // Handle category associations
+      if (category_ids !== undefined) {
+        // Remove existing associations
+        await supabase
+          .from('post_categories')
+          .delete()
+          .eq('post_id', id);
+          
+        // Add new associations
+        if (category_ids.length > 0) {
+          const categoryInserts = category_ids.map(categoryId => ({
+            post_id: id,
+            category_id: categoryId,
+          }));
+          
+          const { error: categoryError } = await supabase
+            .from('post_categories')
+            .insert(categoryInserts);
+            
+          if (categoryError) {
+            console.error('Failed to update categories:', categoryError);
+          }
+        }
+      }
+      
       return data;
     },
     onSuccess: () => {

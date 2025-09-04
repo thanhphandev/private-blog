@@ -4,6 +4,9 @@ import { usePosts } from '@/lib/hooks/use-posts';
 import { useCategories } from '@/lib/hooks/use-categories';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FileText, Eye, FolderOpen, Users } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { format } from 'date-fns';
+import { formatReadingTime } from '@/lib/utils/reading-time';
 
 export default function AdminDashboard() {
   const { data: posts } = usePosts();
